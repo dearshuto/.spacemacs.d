@@ -32,8 +32,8 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(
-     rust
+   '(protobuf
+     (rust :variables rust-backend 'lsp)
      (ruby :variables ruby-backend 'lsp)
      (c-c++ :variables c-c++backend 'lsp-clangd)
      (cmake :variables cmake-backend 'lsp)
@@ -66,11 +66,8 @@ This function should only modify configuration layer settings."
      ;; syntax-checking
      ;; version-control
      treemacs
-
-     (setq-default dotspacemacs-configuration-layers
-                   '(lsp :variable lsp-rust-server 'rust-analyzer))
-     )
-
+     gpu
+   )
 
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
@@ -566,6 +563,12 @@ before packages are loaded."
   (setq-default truncate-lines t)
   (setq-default truncate-partial-width-windows t)
   (setq evil-emacs-state-cursor '("SkyBlue2" bar))
+
+  ;; Tab モード
+  (global-tab-line-mode t)
+
+  ;; 80 文字のハイライト
+  (global-display-fill-column-indicator-mode 1)
 )
 
 
