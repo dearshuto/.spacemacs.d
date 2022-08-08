@@ -582,6 +582,10 @@ before packages are loaded."
 
   ;; 80 文字のハイライト
   (global-display-fill-column-indicator-mode 1)
+
+  ;; シェーダを glsl-mode にひもづけ
+  (add-to-list 'auto-mode-alist '("\\.vs\\'" . glsl-mode))
+  (add-to-list 'auto-mode-alist '("\\.fs\\'" . glsl-mode))
 )
 
 
